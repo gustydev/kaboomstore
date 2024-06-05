@@ -4,6 +4,9 @@ import { useState, useEffect } from 'react';
 
 export default function App() {
     const [data, setData] = useState([]);
+    const [cart, setCartContent] = useState([]);
+
+    const totalQuantity = cart.reduce((a, b) => a + b.quantity, 0);
 
     useEffect(() => {
         let ignore = false;
@@ -39,11 +42,11 @@ export default function App() {
               <ul>
                 <li><Link to='/'>Home</Link></li>
                 <li><Link to='/shop'>Shop</Link></li>
-                <li><Link to='cart'>Cart</Link></li>
+                <li><Link to='cart'>Cart ({totalQuantity})</Link></li>
               </ul>
             </nav>
         </div>
-        <Outlet context={[data]}/>
+        <Outlet context={[data, cart, setCartContent]}/>
         </>
     )
 }
