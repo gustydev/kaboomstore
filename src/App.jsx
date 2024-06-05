@@ -1,7 +1,36 @@
 import { Outlet } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 export default function App() {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        let ignore = false;
+
+        async function fetchData() {
+            try {
+                const response = await fetch('https://fakestoreapi.com/products/category/electronics');
+                const data = await response.json();
+                if (!response.ok) {
+                    throw new Error('Error fetching data. Status: ', response.status)
+                }
+                setData(data);
+            }
+            catch {
+                console.error(error);
+            }
+        }
+
+        if (!ignore) {
+            fetchData();
+        }
+
+        return () => {
+            ignore = true;
+        }
+    }, [])
+
     return (
         <>
         <div className='top-bar'>
@@ -14,7 +43,7 @@ export default function App() {
               </ul>
             </nav>
         </div>
-        <Outlet/>
+        <Outlet context={[data]}/>
         </>
     )
 }

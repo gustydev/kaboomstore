@@ -4,12 +4,14 @@ import App from './App.jsx'
 import Home from './components/home/Home'
 import Shop from './components/shop/Shop';
 import Cart from './components/cart/Cart'
-import { createBrowserRouter, Router, RouterProvider } from "react-router-dom";
+import ErrorPage from './components/errorPage/ErrorPage';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+    errorElement: <ErrorPage/>,
     children: [
       { index: true, element: <Home/>},
       { path: 'shop', element: <Shop/> },
