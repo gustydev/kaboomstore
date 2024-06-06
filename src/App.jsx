@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import styles from './app.module.css';
 
 export default function App() {
     const [data, setData] = useState([]);
@@ -36,13 +37,13 @@ export default function App() {
 
     return (
         <>
-        <div className='top-bar'>
-            <div className='logo'>💣Kaboom</div>
-            <nav>
-              <ul>
-                <li><Link to='/'>Home</Link></li>
-                <li><Link to='/shop'>Shop</Link></li>
-                <li><Link to='cart'>Cart ({totalQuantity})</Link></li>
+        <div className={styles.top}>
+            <div className={styles.logo}>💣Kaboom</div>
+            <nav className={styles.navigation}>
+              <ul className={styles.linkList}>
+                <li className={styles.link}><Link to='/'>Home</Link></li>
+                <li className={styles.link}><Link to='/shop'>Shop</Link></li>
+                <li className={styles.link}><Link to='cart'>Cart ({totalQuantity})</Link></li>
               </ul>
             </nav>
         </div>
