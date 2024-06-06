@@ -1,28 +1,94 @@
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 .cardContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 8px;
+    background-color:#FAFAFB;
+    height: 100%;
+    padding: 24px;
 }
 
 .card {
+    display: grid;
+    grid-template-rows: 1fr repeat(3, 0.1fr) 0.5fr;
+    justify-items: center;
+    background-color: white;
+    padding: 48px;
+    gap: 8px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.image {
+    width: 20%;
+    height: auto;
+    align-self: center;
+}
+
+.title, .price {
+    font-weight: 600;
+    text-align: center;
+}
+
+.price {
+    font-size: 18px;
+    color: #FF6500;
+}
+
+button {
+    cursor: pointer;
+}
+
+.purchaseMenu {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid gray;
     gap: 8px;
-    padding: 24px;
+    position: absolute;
+    bottom: 5%;
 }
 
-.image {
-    max-width: 20%;
-    height: auto;
+.buyButton, .addCartButton {
+    color: white;
+    background-color: #FF6500;
+    border: 1px solid #FF6500;
+    padding: 8px;
+    font-weight: bold;
 }
 
-.title {
-    font-weight: 600;
+.quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.price {
-    font-style: italic;
+.quantityButton {
+    border: 1px solid #FF6500;
+    background-color: white;
+    padding: 8px;
+}
+
+.quantityInput {
+    border-left: 0;
+    border-right: 0;
+    border-top: 1px;
+    border-bottom: 1px;
+    border-color: #FF6500;
+    border-style: solid;
+    padding: 8px;
+    width: 10%;
+    text-align: center;
+}
+
+.quantityButton:hover {
+    background-color: #FF6500;
 }

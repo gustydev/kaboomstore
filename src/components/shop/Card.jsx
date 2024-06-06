@@ -17,8 +17,8 @@ function Rating( {rating} ) {
     }
 
     return (
-        <div className='rating'>
-            <span title={`${rating.rate} / 5`}>{stars}</span> ({rating.count})
+        <div className='rating' title={`Rated ${rating.rate} stars out of 5 (based on ${rating.count} ratings)`}>
+            {stars} ({rating.count})
         </div>
     )
 }
@@ -43,15 +43,27 @@ export default function Card( { id, title, image, price, rating, cart, setCartCo
         }
     }
 
+    function handleQuantity(e) {
+        if (e.target.textContent === '-' && quantity > 1) {
+            setQuantity(q => q - 1);
+        } else if (e.target.textContent === '+') {
+            setQuantity(q => q + 1);
+        }
+    }
+
     return (
         <div className={styles.card}>
-            <div className={styles.title}>{title}</div>
             <img className={styles.image} alt={title} src={image}></img>
-            <div className={styles.price}>${price}</div>
+            <div className={styles.title}>{title}</div>
             <Rating rating={rating} />
-            <div className='cartMenu'>
-                <input type="number" min='0' onChange={(e) => setQuantity(Number(e.target.value))}/>
-                <button onClick={addToCart}>Add to cart</button>
+            <div className={styles.price}>${price}</div>
+            <div className={styles.purchaseMenu}>
+                <div className={styles.quantity}>
+                    <button className={styles.quantityButton} onClick={(e) => handleQuantity(e)}>-</button>
+                    <input className={styles.quantityInput} type="number" min='0' value={quantity} onChange={(e) => setQuantity(Number(e.target.value))}/>
+                    <button className={styles.quantityButton} onClick={(e) => handleQuantity(e)}>+</button>
+                </div>
+                <button className={styles.addCartButton} onClick={addToCart}>Add to cart</button>
             </div>
         </div>
     )
