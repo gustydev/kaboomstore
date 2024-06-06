@@ -1,0 +1,57 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: white;
+    background-color: black; /* when the image fails to load, user is not flashbanged */
+    background-image: url('/images/alexandre-debieve-FO7JIlwjOtU-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.messageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    background-color: rgba(0, 0, 0, 0.448);
+    padding: 48px;
+}
+
+.message {
+    font-size: 26px;
+    text-align: center;
+}
+
+.button > button {
+    border: 0;
+    background-color: orangered;
+    color: white;
+    text-decoration: none;
+    padding: 16px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(206, 55, 0);
+}
+
+.credits {
+    position: absolute;
+    bottom: 10px;
+    font-size: 10px;
+    padding: 4px;
+}
+
+.credits > a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.credits > a:hover {
+    color: orangered;
+}
