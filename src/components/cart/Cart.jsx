@@ -18,7 +18,6 @@ function Item( { id, title, quantity, price, image, handleQuantity, handleDelete
 
 export default function Cart() {
     const [data, cart, setCartContent] = useOutletContext();
-    console.log(cart)
 
     const totalPrice = Math.round(cart.reduce((a, b) => a + (b.quantity * b.price), 0) * 100) / 100;
 
@@ -46,6 +45,7 @@ export default function Cart() {
             return <Item key={i.id} id={i.id} title={i.title} image={i.image} price={i.price} quantity={i.quantity} handleDelete={deleteItem} handleQuantity={changeQuantity}/>
         })}
         <div>Total: ${totalPrice}</div>
+        <button onClick={() => setCartContent([])}>Checkout</button>
         </>
     )
 }
