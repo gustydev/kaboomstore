@@ -1,6 +1,15 @@
+.loading {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .cardContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-rows: repeat(2, 1fr);
     gap: 8px;
     background-color:#FAFAFB;
     height: 100%;
@@ -8,18 +17,18 @@
 }
 
 .card {
-    display: grid;
-    grid-template-rows: 1fr repeat(3, 0.1fr) 0.75fr;
-    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
     background-color: white;
     padding: 48px;
     gap: 8px;
     border-radius: 8px;
-    position: relative;
 }
 
 .image {
-    width: 20%;
+    width: 100px;
     height: auto;
     align-self: center;
 }
@@ -44,8 +53,6 @@ button {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    position: absolute;
-    bottom: 5%;
 }
 
 .quantity {

@@ -41,6 +41,11 @@ export default function Cart() {
         }
     }
 
+    function checkout() {
+        setCartContent([]);
+        alert('Order placed! Thanks for choosing Kaboom!')
+    }
+
     if (cart.length === 0) {
         return (
             <div className={styles.noItems}>
@@ -59,7 +64,7 @@ export default function Cart() {
             </div>
             <div className={styles.checkout}>
                 <div className={styles.total}>Total: ${totalPrice}</div>
-                <button className={mainStyles.orangeButton} onClick={() => setCartContent([])}>Checkout</button>
+                <button className={mainStyles.orangeButton} onClick={() => checkout()}>Checkout</button>
             </div>
         </div>
     )

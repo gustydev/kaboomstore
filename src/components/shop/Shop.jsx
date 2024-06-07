@@ -5,7 +5,9 @@ import styles from './shop.module.css'
 export default function Shop() {
     const [data, cart, setCartContent] = useOutletContext();
 
-    if (data.length === 0) return 'Loading...'
+    if (data.length === 0) return (
+        <div className={styles.loading}>Loading shop...</div>
+    )
 
     return (
         <div className={styles.cardContainer}>
