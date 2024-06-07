@@ -41,9 +41,13 @@ export default function App() {
             <div className={styles.logo}>💣Kaboom</div>
             <nav className={styles.navigation}>
               <ul className={styles.linkList}>
-                <li className={styles.link}><Link to='/'>Home</Link></li>
-                <li className={styles.link}><Link to='/shop'>Shop</Link></li>
-                <li className={styles.link}><Link to='cart'>Cart ({totalQuantity})</Link></li>
+                <li className={styles.link}><Link to='/'><img className={styles.linkImg} src="images/home.png" alt="home" /></Link></li>
+                <li className={styles.link}><Link to='/shop'><img className={styles.linkImg} src="images/shop.png" alt="shop" /></Link></li>
+                <li className={styles.link}>
+                    <Link to='cart'>
+                    <img className={styles.linkImg} src="images/cart.png" alt="cart" /> <div className={styles.cartNumber}>({totalQuantity})</div>
+                    </Link>
+                </li>
               </ul>
             </nav>
         </div>

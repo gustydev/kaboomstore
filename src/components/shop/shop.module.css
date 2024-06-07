@@ -60,3 +60,9 @@ button {
     align-items: center;
     justify-content: center;
 }
+
+@media (max-width: 450px) {
+    .cardContainer {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}

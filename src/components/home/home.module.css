@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
     height: 100%;
     color: white;
     background-color: black; /* when the image fails to load, user is not flashbanged */
