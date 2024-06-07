@@ -7,6 +7,19 @@
     gap: 16px;
 }
 
+.noItems {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 16px;
+}
+
+.msgLarge {
+    font-size: 36px;
+}
+
 .items {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));

@@ -1,4 +1,4 @@
-import { useOutletContext } from "react-router-dom"
+import { useOutletContext, Link } from "react-router-dom"
 import styles from './cart.module.css';
 import mainStyles from '/src/app.module.css';
 
@@ -41,6 +41,15 @@ export default function Cart() {
         }
     }
 
+    if (cart.length === 0) {
+        return (
+            <div className={styles.noItems}>
+                <div className={styles.msgLarge}>Nothing to see here...</div>
+                <div className={styles.msgSmall}>Why not do some shopping?</div>
+                <Link to='/shop'><button className={mainStyles.orangeButton}>Go to shop</button></Link>
+            </div>
+        )
+    }
     return (
         <div className={styles.cart}>
             <div className={styles.items}>
