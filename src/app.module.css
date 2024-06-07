@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -83,5 +92,37 @@ body {
 
 .logo {
     font-size: 36px;
+    font-weight: bold;
+}
+
+.quantityButton {
+    border: 1px solid #FF6500;
+    background-color: white;
+    color: #FF6500;
+    padding: 8px;
+}
+
+.quantityButton:hover {
+    background-color: #FF6500;
+    color: white;
+}
+
+.quantityInput {
+    border-left: 0;
+    border-right: 0;
+    border-top: 1px;
+    border-bottom: 1px;
+    border-color: #FF6500;
+    border-style: solid;
+    padding: 8px;
+    width: 10%;
+    text-align: center;
+}
+
+.orangeButton {
+    color: white;
+    background-color: #FF6500;
+    border: 1px solid #FF6500;
+    padding: 8px;
     font-weight: bold;
 }

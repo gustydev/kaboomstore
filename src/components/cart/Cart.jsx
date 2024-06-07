@@ -1,17 +1,19 @@
-// should rename to Checkout probably
-
 import { useOutletContext } from "react-router-dom"
+import styles from './cart.module.css';
+import mainStyles from '/src/app.module.css';
 
 function Item( { id, title, quantity, price, image, handleQuantity, handleDelete }) {
     return (
-        <div className='item'>
-            <div className="title">{title}</div>
-            <img src={image} alt={title} style={{width:'100px'}}/>
-            <div className="quantity">{quantity}</div>
-            <button onClick={(e) => handleQuantity(e, id)}>-</button>
-            <button onClick={(e) => handleQuantity(e, id)}>+</button>
-            <div className="price">${Math.round(quantity * price * 100) / 100}</div>
-            <button onClick={() => handleDelete(id)}>delet this</button>
+        <div className={styles.item}>
+            <img className={styles.image} src={image} alt={title}/>
+            <div className={styles.title}>{title}</div>
+            <div className={styles.price}>${Math.round(quantity * price * 100) / 100}</div>
+            <div className={styles.quantityMenu}>
+                <button className={mainStyles.quantityButton} onClick={(e) => handleQuantity(e, id)}>-</button>
+                <input className={mainStyles.quantityInput} type="number" min='0' value={quantity} readOnly/>
+                <button className={mainStyles.quantityButton} onClick={(e) => handleQuantity(e, id)}>+</button>
+            </div>
+            <button className={mainStyles.orangeButton + ' ' + styles.delete} onClick={() => handleDelete(id)}>Delete</button>
         </div>
     )
 }
@@ -40,12 +42,16 @@ export default function Cart() {
     }
 
     return (
-        <>
-        {cart.map((i) => { 
-            return <Item key={i.id} id={i.id} title={i.title} image={i.image} price={i.price} quantity={i.quantity} handleDelete={deleteItem} handleQuantity={changeQuantity}/>
-        })}
-        <div>Total: ${totalPrice}</div>
-        <button onClick={() => setCartContent([])}>Checkout</button>
-        </>
+        <div className={styles.cart}>
+            <div className={styles.items}>
+            {cart.map((i) => { 
+                return <Item key={i.id} id={i.id} title={i.title} image={i.image} price={i.price} quantity={i.quantity} handleDelete={deleteItem} handleQuantity={changeQuantity}/>
+            })}
+            </div>
+            <div className={styles.checkout}>
+                <div className={styles.total}>Total: ${totalPrice}</div>
+                <button className={mainStyles.orangeButton} onClick={() => setCartContent([])}>Checkout</button>
+            </div>
+        </div>
     )
 }

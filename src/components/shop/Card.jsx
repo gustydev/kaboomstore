@@ -1,5 +1,6 @@
 import styles from './shop.module.css';
 import { useState } from 'react';
+import mainStyles from '/src/app.module.css';
 
 function Rating( {rating} ) {
     const starNum = Math.round(rating.rate);
@@ -59,11 +60,11 @@ export default function Card( { id, title, image, price, rating, cart, setCartCo
             <div className={styles.price}>${price}</div>
             <div className={styles.purchaseMenu}>
                 <div className={styles.quantity}>
-                    <button className={styles.quantityButton} onClick={(e) => handleQuantity(e)}>-</button>
-                    <input className={styles.quantityInput} type="number" min='0' value={quantity} onChange={(e) => setQuantity(Number(e.target.value))}/>
-                    <button className={styles.quantityButton} onClick={(e) => handleQuantity(e)}>+</button>
+                    <button className={mainStyles.quantityButton} onClick={(e) => handleQuantity(e)}>-</button>
+                    <input className={mainStyles.quantityInput} type="number" min='0' value={quantity} onChange={(e) => setQuantity(Number(e.target.value))}/>
+                    <button className={mainStyles.quantityButton} onClick={(e) => handleQuantity(e)}>+</button>
                 </div>
-                <button className={styles.addCartButton} onClick={addToCart}>Add to cart</button>
+                <button className={mainStyles.orangeButton} onClick={addToCart}>Add to cart</button>
             </div>
         </div>
     )

@@ -1,12 +1,3 @@
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-input[type="number"] {
-    -moz-appearance: textfield;
-}
-
 .cardContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -18,7 +9,7 @@ input[type="number"] {
 
 .card {
     display: grid;
-    grid-template-rows: 1fr repeat(3, 0.1fr) 0.5fr;
+    grid-template-rows: 1fr repeat(3, 0.1fr) 0.75fr;
     justify-items: center;
     background-color: white;
     padding: 48px;
@@ -57,38 +48,8 @@ button {
     bottom: 5%;
 }
 
-.buyButton, .addCartButton {
-    color: white;
-    background-color: #FF6500;
-    border: 1px solid #FF6500;
-    padding: 8px;
-    font-weight: bold;
-}
-
 .quantity {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.quantityButton {
-    border: 1px solid #FF6500;
-    background-color: white;
-    padding: 8px;
-}
-
-.quantityInput {
-    border-left: 0;
-    border-right: 0;
-    border-top: 1px;
-    border-bottom: 1px;
-    border-color: #FF6500;
-    border-style: solid;
-    padding: 8px;
-    width: 10%;
-    text-align: center;
-}
-
-.quantityButton:hover {
-    background-color: #FF6500;
 }
