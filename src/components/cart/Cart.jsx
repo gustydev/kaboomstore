@@ -10,7 +10,7 @@ function Item( { id, title, quantity, price, image, handleQuantity, handleDelete
             <div className={styles.price}>${Math.round(quantity * price * 100) / 100}</div>
             <div className={styles.quantityMenu}>
                 <button className={mainStyles.quantityButton} onClick={(e) => handleQuantity(e, id)}>-</button>
-                <input className={mainStyles.quantityInput} type="number" min='0' value={quantity} readOnly/>
+                <input className={mainStyles.quantityInput} type="number" min='0' value={quantity} onChange={(e) => handleQuantity(e, id)}/>
                 <button className={mainStyles.quantityButton} onClick={(e) => handleQuantity(e, id)}>+</button>
             </div>
             <button className={mainStyles.orangeButton + ' ' + styles.delete} onClick={() => handleDelete(id)}>Delete</button>
@@ -38,6 +38,12 @@ export default function Cart() {
         } else if (e.target.textContent === '+') {
             item.quantity += 1;
             setCartContent(newCart);
+        } else {
+            const value = Number(e.target.value);
+            if (value >= 0 && Number.isInteger(value)) {
+                item.quantity = Number(e.target.value);
+                setCartContent(newCart);
+            }
         }
     }
 
